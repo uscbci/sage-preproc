@@ -56,10 +56,10 @@ for subject in to_do:
         call(command, shell=True)
 
         #add a constant to the in-brain voxels in the residuals file so that FSL can tell it from the background
-        maskfile = "%s/%s_run0%d_pre.feat/mask.nii.gz" % (outfolder,subject,run)
-        newmaskfile = "%s/%s_run0%d_pre.feat/mask_high.nii.gz" % (outfolder,subject,run)
-        residfile = "%s/%s_run0%d_pre.feat/stats/res4d.nii.gz" % (outfolder,subject,run)
-        newresidfile = "%s/%s_run0%d_pre.feat/stats/res4d_bg.nii.gz" % (outfolder,subject,run)
+        maskfile = "%s/%s_run-0%d_pre.feat/mask.nii.gz" % (outfolder,subject,run)
+        newmaskfile = "%s/%s_run-0%d_pre.feat/mask_high.nii.gz" % (outfolder,subject,run)
+        residfile = "%s/%s_run-0%d_pre.feat/stats/res4d.nii.gz" % (outfolder,subject,run)
+        newresidfile = "%s/%s_run-0%d_pre.feat/stats/res4d_bg.nii.gz" % (outfolder,subject,run)
         command = "fslmaths %s -mul 10000 %s" % (maskfile,newmaskfile)
         print(command)
         call(command, shell = True)
