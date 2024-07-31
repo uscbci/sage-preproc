@@ -41,6 +41,8 @@ for subject in to_do:
 
     for run in range(1,5):
 
+        print("Working on run %d" % run)
+
         #Create design file for this subject/run
         outfile = "%s/designs/%s-run0%d.fsf" % (outfolder,subject,run)
         print ("Will create %s" % outfile)
@@ -52,3 +54,15 @@ for subject in to_do:
         command = "feat %s" % outfile
         print(command)
         call(command, shell=True)
+
+        #add a constant to the in-brain voxels in the residuals file so that FSL can tell it from the background
+        maskfile = "%s/%s_run0%d_pre.feat/mask.nii.gz" % (outfolder,subject,run)
+        newmaskfile = "%s/%s_run0%d_pre.feat/mask_high.nii.gz" % (outfolder,subject,run)
+        residfile = "%s/%s_run0%d_pre.feat/stats/res4d.nii.gz" % (outfolder,subject,run)
+        newresidfile = "%s/%s_run0%d_pre.feat/stats/res4d_bg.nii.gz" % (outfolder,subject,run)
+        command = "fslmaths %s -mul 10000 %s" % (maskfile,newmaskfile)
+        print(command)
+        call(command, shell = True)
+        command = "fslmaths %s -add %s %s" % (residfile, newmaskfile, newresidfile)
+        print(command)
+        call(command, shell = True)

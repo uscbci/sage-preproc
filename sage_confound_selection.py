@@ -22,7 +22,9 @@ INPUT_DIR="%s/fmriprep" % DATA_BASE
 
 task_names = ["hiAP_run-01", "hiAP_run-02","hiAP_run-03","hiAP_run-04"]
 
+run = 0 
 for i in range(len(task_names)):
+	run = run + 1
 	task_name = task_names[i]
 
 	print("Working on task %s" % task_name)
@@ -32,7 +34,10 @@ for i in range(len(task_names)):
 	print("Confound file: %s" % conf_file)
 	confs = pd.read_csv(conf_file,sep='\t')
 
-	target_cols = ["a_comp_cor_00", "trans_x", "trans_y", "trans_z", "rot_x", "rot_y", "rot_z"]
+	## Here we are taking the first 6 principle components of the combined anatomical mask (CSF + WM) CompCor
+	## and also the 6 standard motion parameters
+
+	target_cols = ["a_comp_cor_00", "a_comp_cor_01","a_comp_cor_02","a_comp_cor_03","a_comp_cor_04","a_comp_cor_05","trans_x", "trans_y", "trans_z", "rot_x", "rot_y", "rot_z"]
 
 	newdf = confs.loc[:, confs.columns.isin(target_cols) | confs.columns.str.contains('motion') ]
 
