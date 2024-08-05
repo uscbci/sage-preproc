@@ -30,7 +30,7 @@ set fmri(featwatcher_yn) 0
 set fmri(sscleanup_yn) 0
 
 # Output directory
-set fmri(outputdir) "/Volumes/BCI/SAGE/fsl-pre/DEFINESUBJECT_run-0DEFINERUN_pre.feat"
+set fmri(outputdir) "/Volumes/BCI/SAGE/fsl-pre/DEFINESUBJECT/DEFINESUBJECT_run-0DEFINERUN_pre.feat"
 
 # TR(s)
 set fmri(tr) 2.000000 
