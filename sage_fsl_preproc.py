@@ -11,7 +11,7 @@ outfolder = "%s/fsl-pre" % basefolder
 datafolder = "%s/BIDS_data" % basefolder
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
-donefolders = [fol for fol in os.listdir(outfolder) if ".feat"  in fol]
+donefolders = [fol for fol in os.listdir(outfolder) if "sub-"  in fol]
 datafolders = [fol for fol in os.listdir(datafolder) if "sub-" in fol]
 
 to_do = []
