@@ -27,8 +27,6 @@ template = "%s/sage_preproc_fmri.fsf" % dir_path
 
 print ("template is %s" % template)
 
-exit()
-
 # DEBUGGING
 
 for subject in to_do:
