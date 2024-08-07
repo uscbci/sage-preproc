@@ -15,6 +15,8 @@ else:
 	subject = sys.argv[1]
 
 print("Working on residuals for subject %s" % subject)
+if "sub-" not in subject:
+	subject = "sub-%s" % subject
 
 basefolder = "/Volumes/BCI/SAGE"
 outfolder = "%s/fsl-pre" % basefolder
