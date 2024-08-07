@@ -55,13 +55,4 @@ for subject in to_do:
         call(command, shell=True)
 
         #add a constant to the in-brain voxels in the residuals file so that FSL can tell it from the background
-        maskfile = "%s/%s/%s_run-0%d_pre.feat/mask.nii.gz" % (outfolder,subject,subject,run)
-        newmaskfile = "%s/%s/%s_run-0%d_pre.feat/mask_high.nii.gz" % (outfolder,subject,subject,run)
-        residfile = "%s/%s/%s_run-0%d_pre.feat/stats/res4d.nii.gz" % (outfolder,subject,subject,run)
-        newresidfile = "%s/%s/%s_run-0%d_pre.feat/stats/res4d_bg.nii.gz" % (outfolder,subject,subject,run)
-        command = "fslmaths %s -mul 10000 %s" % (maskfile,newmaskfile)
-        print(command)
-        call(command, shell = True)
-        command = "fslmaths %s -add %s %s" % (residfile, newmaskfile, newresidfile)
-        print(command)
-        call(command, shell = True)
+        command = "%s/sage_fix_residuals.py %s" % (dir_path,subject)
