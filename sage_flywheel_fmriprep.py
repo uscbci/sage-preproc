@@ -17,7 +17,9 @@ for subject in datafolders:
     if subject not in donefolders:
         to_do.append(subject)
 
-print("Subjects to do:")
+
+numtodo = len(to_do)
+print("Subjects to do (%d):" % numtodo)
 print(to_do)
 to_do.sort()
 
