@@ -25,7 +25,7 @@ print(donefolders)
 to_do = []
 for subject in readyfolders:
     if subject not in donefolders:
-        to_do.append(subject)
+        to_do.append(subject[0:9])
 
 print("\nSubjects to do:")
 print(to_do)
