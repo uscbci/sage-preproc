@@ -9,14 +9,17 @@ print("Running on host %s" % host)
 basefolder = "/Volumes/BCI/SAGE"
 outfolder = "%s/fsl-pre" % basefolder
 datafolder = "%s/BIDS_data" % basefolder
+prepfolder = "%s/fmriprep"
+
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 donefolders = [fol for fol in os.listdir(outfolder) if "sub-"  in fol]
-datafolders = [fol for fol in os.listdir(datafolder) if "sub-" in fol and ".html" in fol]
+readyfolders = [fol for fol in os.listdir(prepfolder) if "sub-" in fol and ".html" in fol]
+datafolders = [fol for fol in os.listdir(datafolder) if "sub-" in fol]
 
 to_do = []
 for subject in datafolders:
-    if subject not in donefolders:
+    if subject not in donefolders and subject in readyfolders:
         to_do.append(subject)
 
 print("Subjects to do:")
