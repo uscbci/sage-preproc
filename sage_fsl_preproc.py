@@ -12,7 +12,7 @@ datafolder = "%s/BIDS_data" % basefolder
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 donefolders = [fol for fol in os.listdir(outfolder) if "sub-"  in fol]
-datafolders = [fol for fol in os.listdir(datafolder) if "sub-" in fol]
+datafolders = [fol for fol in os.listdir(datafolder) if "sub-" in fol and ".html" in fol]
 
 to_do = []
 for subject in datafolders:
