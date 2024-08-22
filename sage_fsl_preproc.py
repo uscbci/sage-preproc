@@ -14,7 +14,7 @@ prepfolder = "%s/fmriprep" % basefolder
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 donefolders = [fol for fol in os.listdir(outfolder) if "sub-"  in fol]
-readyfolders = [fol for fol in os.listdir(prepfolder) if "sub-" in fol and ".html" in fol]
+readyfolders = [fol[0:9] for fol in os.listdir(prepfolder) if "sub-" in fol and ".html" in fol]
 datafolders = [fol for fol in os.listdir(datafolder) if "sub-" in fol]
 
 print("Ready:")
@@ -25,7 +25,7 @@ print(donefolders)
 to_do = []
 for subject in readyfolders:
     if subject not in donefolders:
-        to_do.append(subject[0:9])
+        to_do.append(subject)
 
 print("\nSubjects to do:")
 to_do.sort()
