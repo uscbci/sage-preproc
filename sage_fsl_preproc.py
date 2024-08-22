@@ -17,12 +17,17 @@ donefolders = [fol for fol in os.listdir(outfolder) if "sub-"  in fol]
 readyfolders = [fol for fol in os.listdir(prepfolder) if "sub-" in fol and ".html" in fol]
 datafolders = [fol for fol in os.listdir(datafolder) if "sub-" in fol]
 
+print("Ready:")
+print(readyfolders)
+print("\nDone:")
+print(donefolders)
+
 to_do = []
-for subject in datafolders:
-    if subject not in donefolders and subject in readyfolders:
+for subject in readyfolders:
+    if subject not in donefolders:
         to_do.append(subject)
 
-print("Subjects to do:")
+print("\nSubjects to do:")
 print(to_do)
 to_do.sort()
 
