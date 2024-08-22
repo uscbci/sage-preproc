@@ -28,8 +28,9 @@ for subject in readyfolders:
         to_do.append(subject[0:9])
 
 print("\nSubjects to do:")
-print(to_do)
 to_do.sort()
+print(to_do)
+
 
 template = "%s/sage_preproc_fmri.fsf" % dir_path
 
