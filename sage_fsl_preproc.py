@@ -9,7 +9,7 @@ print("Running on host %s" % host)
 basefolder = "/Volumes/BCI/SAGE"
 outfolder = "%s/fsl-pre" % basefolder
 datafolder = "%s/BIDS_data" % basefolder
-prepfolder = "%s/fmriprep"
+prepfolder = "%s/fmriprep" % basefolder
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
