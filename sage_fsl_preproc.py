@@ -5,11 +5,20 @@ import os, socket
 # We are using different parameters on different host computers
 host = socket.gethostname()
 print("Running on host %s" % host)
-
 basefolder = "/Volumes/BCI/SAGE"
-outfolder = "%s/fsl-pre" % basefolder
-datafolder = "%s/BIDS_data" % basefolder
-prepfolder = "%s/fmriprep" % basefolder
+
+
+if host=='calypso.usc.edu':
+    basefolder = "/Volumes/BCI/SAGE"
+    outfolder = "/Users/jtkaplan/fMRI/SAGE/fsl-pre"
+    datafolder = "%s/BIDS_data" % basefolder
+    prepfolder = "/Users/jtkaplan/fMRI/SAGE/fmriprep"
+
+else:
+    basefolder = "/Volumes/BCI/SAGE"
+    outfolder = "%s/fsl-pre" % basefolder
+    datafolder = "%s/BIDS_data" % basefolder
+    prepfolder = "%s/fmriprep" % basefolder
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
